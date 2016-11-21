@@ -35,6 +35,7 @@ class ChessFigureService
 
     public function removeFigure(ChessBoard $chessBoard, ChessFigure $figure)
     {
-
+        $chessBoard->remove($figure);
+        $figure->remove();
     }
 }

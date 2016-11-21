@@ -43,8 +43,10 @@ class ChessBoard
         return $this;
     }
 
-    public function remove(Cell $cell)
+    public function remove(ChessFigure $figure)
     {
+        $cell = $figure->getCell();
+
         unset($this->cells[$cell->getX()][$cell->getY()]);
 
         return $this;
