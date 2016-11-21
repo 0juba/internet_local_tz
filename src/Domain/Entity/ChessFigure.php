@@ -2,6 +2,7 @@
 
 namespace ChessDomain\Entity;
 
+use ChessDomain\FigureStrategy\FigureStrategyInterface;
 use ChessDomain\ValueObject\Cell;
 use ChessDomain\ValueObject\Color;
 
@@ -12,11 +13,14 @@ class ChessFigure
     private $cell;
     /** @var  ChessBoard */
     private $chessBoard;
+    /** @var  FigureStrategyInterface */
+    private $movementStrategy;
 
-    public function __construct(Color $color, Cell $cell = null)
+    public function __construct(FigureStrategyInterface $figureStrategy, Color $color, Cell $cell = null)
     {
         $this->color = $color;
         $this->cell = $cell;
+        $this->movementStrategy = $figureStrategy;
     }
 
     public function moveTo(Cell $cell)
@@ -61,5 +65,10 @@ class ChessFigure
     public function isPlaced()
     {
         return null !== $this->chessBoard;
+    }
+
+    public function getMovementStrategy()
+    {
+        return $this->movementStrategy;
     }
 }
