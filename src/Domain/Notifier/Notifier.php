@@ -25,7 +25,7 @@ class Notifier implements NotifierInterface
 
     public function addListener($eventName, ListenerInterface $listener)
     {
-        if (!empty($this->listeners[$eventName]) &&in_array($listener, $this->listeners[$eventName], true)) {
+        if (!empty($this->listeners[$eventName]) && in_array($listener, $this->listeners[$eventName], true)) {
             return;
         }
 
