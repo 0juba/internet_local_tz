@@ -1,0 +1,39 @@
+<?php
+
+namespace ChessDomain\Service;
+
+use ChessDomain\Entity\ChessBoard;
+use ChessDomain\Entity\ChessFigure;
+use ChessDomain\Notifier\Event;
+use ChessDomain\Notifier\Events;
+use ChessDomain\Notifier\NotifierInterface;
+use ChessDomain\ValueObject\Cell;
+
+class ChessFigureService
+{
+    /** @var  NotifierInterface */
+    private $notifier;
+
+    public function __construct(NotifierInterface $notifier)
+    {
+        $this->notifier = $notifier;
+    }
+
+    public function addFigure(ChessBoard $chessBoard, ChessFigure $figure)
+    {
+        $chessBoard->add($figure);
+
+        $this->notifier->fire(Events::ANY_FIGURE_ADDED, new Event($chessBoard, $figure));
+        $this->notifier->fire(Events::getFromFigure($figure), new Event($chessBoard, $figure));
+    }
+
+    public function moveFigure(ChessBoard $chessBoard, ChessFigure $figure, Cell $to)
+    {
+
+    }
+
+    public function removeFigure(ChessBoard $chessBoard, ChessFigure $figure)
+    {
+
+    }
+}
