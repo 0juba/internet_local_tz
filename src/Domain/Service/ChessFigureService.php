@@ -4,6 +4,7 @@ namespace ChessDomain\Service;
 
 use ChessDomain\Entity\ChessBoard;
 use ChessDomain\Entity\ChessFigure;
+use ChessDomain\Factory\ChessFigureFactory;
 use ChessDomain\Notifier\Event;
 use ChessDomain\Notifier\Events;
 use ChessDomain\Notifier\NotifierInterface;
@@ -37,5 +38,14 @@ class ChessFigureService
     {
         $chessBoard->remove($figure);
         $figure->remove();
+    }
+
+    function __call($name, $arguments)
+    {
+        if (false === strpos($name, 'create')) {
+            throw new \BadMethodCallException('Unknown method.');
+        }
+
+        return ChessFigureFactory::$name($arguments);
     }
 }
