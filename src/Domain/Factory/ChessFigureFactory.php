@@ -41,7 +41,7 @@ class ChessFigureFactory
                 break;
         }
 
-        $strategyClassname = 'ChessDomain\\FigureStrategy\\' . ucfirst(strtolower($parts[3]));
+        $strategyClassname = 'ChessDomain\\FigureStrategy\\' . ucfirst(strtolower($parts[3])) . 'Strategy';
         if (!class_exists($strategyClassname)) {
             throw new \BadMethodCallException('Unknown figure strategy.');
         }
