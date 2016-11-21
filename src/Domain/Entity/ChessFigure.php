@@ -25,6 +25,8 @@ class ChessFigure
 
     public function moveTo(Cell $cell)
     {
+        $this->movementStrategy->moveTo($cell);
+
         $this->cell = $cell;
 
         return $this;

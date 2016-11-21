@@ -45,7 +45,16 @@ class ChessBoard
 
     public function remove(Cell $cell)
     {
-        unset($this->cells[$cell    ->getX()][$cell->getY()]);
+        unset($this->cells[$cell->getX()][$cell->getY()]);
+
+        return $this;
+    }
+
+    public function moveTo(ChessFigure $chessFigure, Cell $from, Cell $to)
+    {
+        unset($this->cells[$from->getX()][$from->getY()]);
+
+        $this->cells[$to->getX()][$to->getY()] = $chessFigure;
 
         return $this;
     }

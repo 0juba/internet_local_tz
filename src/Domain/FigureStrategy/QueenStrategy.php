@@ -2,9 +2,12 @@
 
 namespace ChessDomain\FigureStrategy;
 
-class QueenStrategy implements FigureStrategyInterface 
+use ChessDomain\Entity\ChessBoard;
+use ChessDomain\ValueObject\Cell;
+
+class QueenStrategy implements FigureStrategyInterface
 {
-    public function moveTo()
+    public function moveTo(ChessBoard $chessBoard, Cell $to)
     {
         // TODO: Implement moveTo() method.
     }
