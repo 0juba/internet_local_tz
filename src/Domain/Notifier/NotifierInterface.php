@@ -4,6 +4,6 @@ namespace ChessDomain\Notifier;
 
 interface NotifierInterface
 {
-    public function fire();
-    public function addListener();
+    public function fire($eventName, Event $event);
+    public function addListener($eventName, ListenerInterface $listener);
 }
