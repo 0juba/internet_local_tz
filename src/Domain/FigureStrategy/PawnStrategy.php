@@ -8,4 +8,9 @@ class PawnStrategy implements FigureStrategyInterface
     {
         // TODO: Implement moveTo() method.
     }
+
+    public function getName()
+    {
+        return 'pawn';
+    }
 }

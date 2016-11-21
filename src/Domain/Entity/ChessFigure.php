@@ -71,4 +71,13 @@ class ChessFigure
     {
         return $this->movementStrategy;
     }
+
+    public function getType()
+    {
+        if ($this->movementStrategy) {
+            return $this->movementStrategy->getName();
+        }
+
+        throw new \LogicException('Movement strategy should be set.');
+    }
 }

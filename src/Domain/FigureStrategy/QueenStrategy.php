@@ -8,4 +8,9 @@ class QueenStrategy implements FigureStrategyInterface
     {
         // TODO: Implement moveTo() method.
     }
+
+    public function getName()
+    {
+        return 'queen';
+    }
 }

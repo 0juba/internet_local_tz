@@ -8,4 +8,9 @@ class KingStrategy implements FigureStrategyInterface
     {
         // TODO: Implement moveTo() method.
     }
+
+    public function getName()
+    {
+        return 'king';
+    }
 }
