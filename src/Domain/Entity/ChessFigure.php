@@ -3,19 +3,17 @@
 namespace ChessDomain\Entity;
 
 use ChessDomain\ValueObject\Cell;
+use ChessDomain\ValueObject\Color;
 
 class ChessFigure
 {
-    const COLOR_BLACK = 'black';
-    const COLOR_WHITE = 'white';
-
     private $color;
     /** @var  Cell */
     private $cell;
     /** @var  ChessBoard */
     private $chessBoard;
 
-    public function __construct($color, Cell $cell = null)
+    public function __construct(Color $color, Cell $cell = null)
     {
         $this->color = $color;
         $this->cell = $cell;
