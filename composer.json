@@ -14,5 +14,7 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "predis/predis": "^1.1"
+    }
 }
