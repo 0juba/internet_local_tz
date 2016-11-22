@@ -13,7 +13,7 @@ $king = $container->get('chess_figure_service')->createWhiteKing();
 $queen = $container->get('chess_figure_service')->createWhiteQueen();
 
 // Получим доску
-$board = $container->get('chess_board_service')->createBoard(8);
+$board = $container->get('chess_board_service')->create(8);
 
 // Сохраним состояние доски
 $container->get('chess_board_service')->save($board);
