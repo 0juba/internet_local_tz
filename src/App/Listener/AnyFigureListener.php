@@ -9,6 +9,6 @@ class AnyFigureListener implements ListenerInterface
 {
     public function handle(Event $event)
     {
-        // TODO impl some code
+        echo 'Added figure to the board.', PHP_EOL;
     }
 }

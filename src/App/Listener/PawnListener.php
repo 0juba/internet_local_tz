@@ -9,6 +9,6 @@ class PawnListener implements ListenerInterface
 {
     public function handle(Event $event)
     {
-        // TODO impl some code
+        echo 'Added pawn to the board.', PHP_EOL;
     }
 }
