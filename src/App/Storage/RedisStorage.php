@@ -22,11 +22,11 @@ class RedisStorage implements StorageInterface
 
     public function save(ChessBoard $chessBoard)
     {
-       $this->redisClient->set(self::BOARD_KEY, serialize($chessBoard));
+       $this->redisClient->set(self::BOARD_KEY, urlencode(serialize($chessBoard)));
     }
 
     public function load()
     {
-        return unserialize($this->redisClient->get(self::BOARD_KEY));
+        return unserialize(urldecode($this->redisClient->get(self::BOARD_KEY)));
     }
 }
