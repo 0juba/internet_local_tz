@@ -2,7 +2,7 @@
 
 namespace ChessDomain\Service;
 
-use ChessDomain\Entity\ChessBoard;
+use ChessDomain\Entity\ChessFigure;
 use ChessDomain\Storage\StorageInterface;
 
 class ChessBoardService
@@ -17,10 +17,10 @@ class ChessBoardService
 
     public function create($size)
     {
-        return new ChessBoard($size);
+        return new ChessFigure($size);
     }
 
-    public function save(ChessBoard $chessBoard)
+    public function save(ChessFigure $chessBoard)
     {
         $this->storage->save($chessBoard);
     }

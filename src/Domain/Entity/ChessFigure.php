@@ -11,7 +11,7 @@ class ChessFigure
     private $color;
     /** @var  Cell */
     private $position;
-    /** @var  ChessBoard */
+    /** @var  ChessFigure */
     private $chessBoard;
     /** @var  FigureStrategyInterface */
     private $movementStrategy;
@@ -52,14 +52,14 @@ class ChessFigure
         return $this->chessBoard;
     }
 
-    public function setChessBoard(ChessBoard $chessBoard)
+    public function setChessBoard(ChessFigure $chessBoard)
     {
         $this->chessBoard = $chessBoard;
 
         return $this;
     }
 
-    public function isBelongsToBoard(ChessBoard $chessBoard)
+    public function isBelongsToBoard(ChessFigure $chessBoard)
     {
         return $this->chessBoard === $chessBoard;
     }

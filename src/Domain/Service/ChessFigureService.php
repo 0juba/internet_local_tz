@@ -2,8 +2,8 @@
 
 namespace ChessDomain\Service;
 
-use ChessDomain\Entity\ChessBoard;
 use ChessDomain\Entity\ChessFigure;
+use ChessDomain\Entity\ChessBoard;
 use ChessDomain\Factory\ChessFigureFactory;
 use ChessDomain\Notifier\Event;
 use ChessDomain\Notifier\Events;
