@@ -24,7 +24,7 @@ class ChessFigureFactory
         }
 
         $parts = array();
-        if (!preg_match('/^(create)(white|black)([a-z]+)$/ium', $name, $parts)) {
+        if (!preg_match('/^(create)(white|black)([a-z]+)$/i', $name, $parts)) {
             throw new \BadMethodCallException('Unsupported action.');
         }
 
