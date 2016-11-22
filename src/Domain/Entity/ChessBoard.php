@@ -40,6 +40,10 @@ class ChessBoard
 
         $this->cells[$x][$y] = $figure;
 
+        $figure
+            ->setChessBoard($this)
+            ->moveTo(Cell::create($x, $y));
+
         return $this;
     }
 
