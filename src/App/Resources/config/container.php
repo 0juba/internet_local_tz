@@ -29,15 +29,14 @@ return array(
         return $fileStorage;
     },
     'redis_storage'        => function (ChessApp\Container\Container $container, $serviceId) {
-        $redisStorage = new \ChessApp\Storage\RedisStorage('192.168.0.100');
+        $redisStorage = new \ChessApp\Storage\RedisStorage('192.168.0.250');
         $container->addService($serviceId, $redisStorage);
 
         return $redisStorage;
     },
     'storage'              => function (ChessApp\Container\Container $container, $serviceId) {
-        // Storage service
-        $container->addService($serviceId, $container->get('file_storage'));
+        $container->addService($serviceId, $container->get('redis_storage'));
 
-        return $container->get('file_storage');
+        return $container->get('redis_storage');
     }
 );
