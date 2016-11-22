@@ -28,14 +28,26 @@ class ChessFigureService
         $this->notifier->notify(Events::getFromFigure($figure), new Event($chessBoard, $figure));
     }
 
-    public function moveFigure(ChessBoard $chessBoard, ChessFigure $figure, Cell $to)
+    public function moveFigure(ChessFigure $figure, Cell $to)
     {
+        if (!$figure->isPlaced()) {
+            throw new \LogicException('Figure does not belong to any board.');
+        }
+
+        $chessBoard = $figure->getChessBoard();
+
         $chessBoard->moveTo($figure, $figure->getPosition(), $to);
         $figure->moveTo($to);
     }
 
-    public function removeFigure(ChessBoard $chessBoard, ChessFigure $figure)
+    public function removeFigure(ChessFigure $figure)
     {
+        if (!$figure->isPlaced()) {
+            throw new \LogicException('Figure does not belong to any board.');
+        }
+
+        $chessBoard = $figure->getChessBoard();
+
         $chessBoard->remove($figure);
         $figure->remove();
     }
