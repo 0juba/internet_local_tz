@@ -29,6 +29,10 @@ class Container
 
     public function addService($serviceId, $serviceInstance)
     {
+        if (isset($this->services[$serviceId])) {
+            return;
+        }
+
         $this->services[$serviceId] = $serviceInstance;
     }
 
@@ -39,7 +43,9 @@ class Container
         }
 
         if ($this->services[$serviceId] instanceof \Closure) {
-            $this->services[$serviceId] = $this->services[$serviceId]();
+            $instance = $this->services[$serviceId]($this, $serviceId);
+            unset($this->services[$serviceId]);
+            $this->services[$serviceId] = $instance;
         }
 
         return $this->services[$serviceId];
