@@ -3,7 +3,7 @@
 $loader = require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new \ChessApp\App();
-$app->init(require_once(__DIR__ . '/../src/App/Resources/config'));
+$app->init(require_once(__DIR__ . '/../src/App/Resources/config/container.php'));
 
 $container = $app->getContainer();
 
