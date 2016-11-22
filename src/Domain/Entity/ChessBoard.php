@@ -45,7 +45,7 @@ class ChessBoard
 
     public function remove(ChessFigure $figure)
     {
-        $cell = $figure->getCell();
+        $cell = $figure->getPosition();
 
         unset($this->cells[$cell->getX()][$cell->getY()]);
 

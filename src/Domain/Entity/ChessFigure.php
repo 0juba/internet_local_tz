@@ -10,31 +10,31 @@ class ChessFigure
 {
     private $color;
     /** @var  Cell */
-    private $cell;
+    private $position;
     /** @var  ChessBoard */
     private $chessBoard;
     /** @var  FigureStrategyInterface */
     private $movementStrategy;
 
-    public function __construct(FigureStrategyInterface $figureStrategy, Color $color, Cell $cell = null)
+    public function __construct(FigureStrategyInterface $figureStrategy, Color $color, Cell $position = null)
     {
         $this->color = $color;
-        $this->cell = $cell;
+        $this->position = $position;
         $this->movementStrategy = $figureStrategy;
     }
 
     public function moveTo(Cell $cell)
     {
-        $this->movementStrategy->moveTo($cell);
+        $this->movementStrategy->moveTo($this, $cell);
 
-        $this->cell = $cell;
+        $this->position = $cell;
 
         return $this;
     }
 
     public function remove()
     {
-        $this->cell = null;
+        $this->position = null;
     }
 
     public function getColor()
@@ -42,9 +42,9 @@ class ChessFigure
         return $this->color;
     }
 
-    public function getCell()
+    public function getPosition()
     {
-        return $this->cell;
+        return $this->position;
     }
 
     public function getChessBoard()

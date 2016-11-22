@@ -30,7 +30,7 @@ class ChessFigureService
 
     public function moveFigure(ChessBoard $chessBoard, ChessFigure $figure, Cell $to)
     {
-        $chessBoard->moveTo($figure, $figure->getCell(), $to);
+        $chessBoard->moveTo($figure, $figure->getPosition(), $to);
         $figure->moveTo($to);
     }
 
