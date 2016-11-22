@@ -24,8 +24,8 @@ class ChessFigureService
     {
         $chessBoard->add($figure);
 
-        $this->notifier->fire(Events::ANY_FIGURE_ADDED, new Event($chessBoard, $figure));
-        $this->notifier->fire(Events::getFromFigure($figure), new Event($chessBoard, $figure));
+        $this->notifier->notify(Events::ANY_FIGURE_ADDED, new Event($chessBoard, $figure));
+        $this->notifier->notify(Events::getFromFigure($figure), new Event($chessBoard, $figure));
     }
 
     public function moveFigure(ChessBoard $chessBoard, ChessFigure $figure, Cell $to)

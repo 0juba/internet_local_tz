@@ -11,7 +11,7 @@ class Notifier implements NotifierInterface
         $this->listeners = array();
     }
 
-    public function fire($eventName, Event $event)
+    public function notify($eventName, Event $event)
     {
         if (empty($this->listeners[$eventName])) {
             return;
