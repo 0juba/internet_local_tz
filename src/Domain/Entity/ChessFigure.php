@@ -35,6 +35,7 @@ class ChessFigure
     public function remove()
     {
         $this->position = null;
+        $this->chessBoard = null;
     }
 
     public function getColor()
